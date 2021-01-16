@@ -1,11 +1,13 @@
 //: A UIKit based Playground for presenting user interface
-  
+
 import UIKit
 import PlaygroundSupport
 // ViewController you are gonna use.
 class MyViewController : UIViewController,UseAnyWhereCalculator{
-
- 
+    
+    let labelMultiply = UILabel()
+    let labelAdd = UILabel()
+    
     
     var a: Int = 3
     
@@ -13,24 +15,29 @@ class MyViewController : UIViewController,UseAnyWhereCalculator{
     
     
     override func loadView() {
+        
+        setupLabels()
+        
+        labelAdd.text = "\(a)+\(b)=\(addAB())" // Use the addAB method to add two given values
+        
+        labelMultiply.text = "\(a)x\(b)=\(multiplyAB())" // Use the multiplyAB method to multiply two given values
+        
+    }
+    
+    func setupLabels(){
         let view = UIView()
         view.backgroundColor = .white
-        let labelAdd = UILabel()
         labelAdd.frame = CGRect(x: 150, y: 200, width: 200, height: 20)
-        labelAdd.text = "\(a)+\(b)=\(addAB())" // Use the addAB method to add two given values
         labelAdd.textColor = .black
-        
         view.addSubview(labelAdd)
-        
-        let labelMultiply = UILabel()
         labelMultiply.frame = CGRect(x: 150, y: 250, width: 200, height: 20)
-        labelMultiply.text = "\(a)x\(b)=\(multiplyAB())" // Use the multiplyAB method to multiply two given values
         labelMultiply.textColor = .black
-        
         view.addSubview(labelMultiply)
         self.view = view
+        
     }
 }
+
 // Present the view controller in the Live View window
 PlaygroundPage.current.liveView = MyViewController()
 
