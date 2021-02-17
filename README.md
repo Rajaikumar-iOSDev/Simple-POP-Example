@@ -1,6 +1,6 @@
 # 🍿Simple-POP-Example
 
-This is an expample for the usage of protocol oriented programming in iOS-Swift.
+This is an example for the usage of protocol oriented programming in iOS-Swift.
 
 ## 🥞Tech stack
 
